@@ -1,0 +1,62 @@
+@import "../../style/color";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  position: relative;
+
+  &_label {
+    font-size: 18px;
+    color: $primary-burgundy-color;
+    transform: translateY(5px);
+    transition: all .3s;
+  }
+
+  &_label_hidden {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all .3s;
+  }
+
+  &_input {
+    border: none;
+    border-bottom: 1px solid $primary-burgundy-color;
+    border-radius: 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-family: 'Belleza', sans-serif;
+
+    &::placeholder {
+      font-family: 'Belleza', sans-serif;
+      font-size: 16px;
+      color: $placeholder-gray-color;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &_warning {
+    color: $error-red-color;
+    font-size: 12px;
+    text-align: right;
+  }
+
+  .error_label {
+    color: $error-red-color;
+  }
+
+  .error_input {
+    border-color: $error-red-color;
+  }
+
+  .icon {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    cursor: pointer;
+  }
+}

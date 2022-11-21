@@ -1,0 +1,20 @@
+@import "../../style/color";
+
+.button {
+  background: $primary-burgundy-color;
+  padding: 10px;
+  color: $white-color;
+  font-size: 18px;
+  border: none;
+  border-radius: 7px;
+  font-family: 'Belleza', sans-serif;
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(90deg, rgba(60,7,10,1) 0%, #712730 50%, rgba(60,7,10,1) 100%);
+  }
+
+  &:disabled {
+    background: $disabled-gray-color;
+  }
+}
