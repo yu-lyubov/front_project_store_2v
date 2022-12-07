@@ -1,6 +1,6 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter as Router } from 'react-router-dom';
-import ROUTES from './helper/routes';
+import { Routes, Route, BrowserRouter as Router, Navigate } from 'react-router-dom';
+import ROUTES, { ROUTES_PATH } from './helper/routes';
 
 const App = () => {
   return (
@@ -13,6 +13,10 @@ const App = () => {
             element={route.element}
           />
         ))}
+          <Route
+              path="*"
+              element={<Navigate to={ROUTES_PATH.LOGIN} replace />}
+          />
       </Routes>
     </Router>
   );

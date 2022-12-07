@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import Input from '../../components/Inputs/Input';
 import InputPassword from '../../components/Inputs/InputPassword';
 import Button from '../../components/Button';
 import { initialUser } from '../../helper/consts/user';
+import { ROUTES_PATH } from '../../helper/routes';
 import { IUserForm } from '../../types/user';
 import { validateRegistrationForm } from '../../validator/registration';
 import styles from '../registration/registration.module.scss';
 
 const Login: React.FC = () => {
+  const navigate = useNavigate();
   const [user, setUser] = useState<IUserForm>(initialUser);
   const [err, setErr] = useState(initialUser);
   const { email, password, passwordConfirmation } = user;
@@ -28,9 +30,10 @@ const Login: React.FC = () => {
 
   const handleSaveUser = async () => {
     axios.post('http://localhost:8000/api/login', user)
-      .then((res) => {
+      .then(async (res) => {
         const { access_token } = res.data;
-        localStorage.setItem('access_token', JSON.stringify(access_token || ''));
+        await localStorage.setItem('access_token', JSON.stringify(access_token || ''));
+        navigate(ROUTES_PATH.PROFILE);
       })
       .catch((err) => {
         toast.error(err.response.data);
