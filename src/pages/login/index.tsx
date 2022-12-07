@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -8,9 +8,9 @@ import Button from '../../components/Button';
 import { initialUser } from '../../helper/consts/user';
 import { IUserForm } from '../../types/user';
 import { validateRegistrationForm } from '../../validator/registration';
-import styles from './registration.module.scss';
+import styles from '../registration/registration.module.scss';
 
-const Registration: React.FC = () => {
+const Login: React.FC = () => {
   const [user, setUser] = useState<IUserForm>(initialUser);
   const [err, setErr] = useState(initialUser);
   const { email, password, passwordConfirmation } = user;
@@ -18,7 +18,7 @@ const Registration: React.FC = () => {
 
   useEffect((): void => {
     Object.values(user).some((value) => !!value) &&
-      validateRegistrationForm(user, setErr);
+    validateRegistrationForm(user, setErr);
   }, [user]);
 
   const handleChangeUser = (event: React.FormEvent<HTMLInputElement>): void => {
@@ -27,7 +27,7 @@ const Registration: React.FC = () => {
   };
 
   const handleSaveUser = async () => {
-    axios.post('http://localhost:8000/api/registration', user)
+    axios.post('http://localhost:8000/api/login', user)
       .then((res) => {
         const { access_token } = res.data;
         localStorage.setItem('access_token', JSON.stringify(access_token || ''));
@@ -41,7 +41,7 @@ const Registration: React.FC = () => {
     <div className={styles.main_background}>
       <div className={styles.form_background}>
         <div className={styles.form}>
-          <h1>Регистрация</h1>
+          <h1>Вход на сайт</h1>
           <div className={styles.inputs_list}>
             <Input
               value={email}
@@ -67,10 +67,10 @@ const Registration: React.FC = () => {
               name="passwordConfirmation"
               warning={err.passwordConfirmation || ""}
             />
-            <p>Уже зарегистрированы? <Link to="/login">Войти</Link></p>
+            <p>Не зарегистрированы? <Link to="/registration">Зарегистрироваться</Link></p>
           </div>
           <Button
-            text="Зарегистрироваться"
+            text="Войти"
             onClick={handleSaveUser}
             disabled={errList.length !== 0}
           />
@@ -80,4 +80,4 @@ const Registration: React.FC = () => {
   );
 };
 
-export default Registration;
+export default Login;

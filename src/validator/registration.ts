@@ -6,29 +6,25 @@ const schema = yup.object().shape({
     .string()
     .oneOf(
       [yup.ref('password'), null],
-      'Passwords must match',
+      'пароли должны совпадать',
     ),
   'password': yup
     .string()
-    .min(6, 'password must be at least 6 characters long')
+    .min(6, 'длина пароля должна составлять не менее 6 символов')
     .matches(
       /(?=.*[0-9])(?=.*[a-z])[0-9a-z]/g,
-      'Password must contain only Latin letters (regardless of register) or numbers',
+      'пароль должен содержать только латинские буквы и числа',
     )
     .required(),
-  'email': yup.string().required().email(),
+  'email': yup.string().required('обязательное поле').email('электронный адрес должен быть валидным'),
 });
 
 export const validateRegistrationForm = (data: IUserForm, setErrorHandler: any) => {
-  let isValidate = true;
   schema.validate(data)
     .then(() => {
       setErrorHandler({})
     })
     .catch((err) => {
-      isValidate = false;
       setErrorHandler({ [err.path]: err.message || '' })
     });
-
-  return isValidate;
 };
