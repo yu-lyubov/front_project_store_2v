@@ -1,0 +1,60 @@
+@import "../../style/color";
+
+.main_background {
+  background-image: url("../../assets/background/login-background.jpeg");
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+
+  .form_background {
+    width: 50%;
+    height: 100%;
+    background: $primary-burgundy-color-5;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 500px;
+      height: 500px;
+      background: $white-color;
+      border-radius: 15px;
+      box-sizing: border-box;
+      padding: 35px;
+
+      h1 {
+        color: $primary-burgundy-color;
+        text-align: center;
+        font-size: 46px;
+        margin: 0;
+      }
+
+      .inputs_list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 240px;
+
+        p {
+          margin: 0;
+          text-align: right;
+          font-size: 14px;
+
+          a {
+            text-decoration: none;
+            color: #ab1123;
+
+            &:hover {
+              color: $placeholder-gray-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
