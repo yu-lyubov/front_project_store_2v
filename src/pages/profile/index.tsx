@@ -66,27 +66,30 @@ const UserData: React.FC = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.block}>
-        <Input
-          value={name}
-          onChange={handleChangeUserData}
-          label="Имя"
-          placeholder="Введите имя пользователя"
-          name="name"
-        />
-        <InputNumber
-          value={age}
-          onChange={handleChangeUserData}
-          label="Возраст"
-          placeholder="Введите возраст пользователя"
-          name="age"
-        />
-        <Select
-          options={MALE}
-          label="Пол"
-          onChange={handleChangeUserData}
-          name="male"
-          selected={String(male)}
-        />
+        <h1>Данные пользователя</h1>
+        <div className={styles.inputsBlock}>
+          <Input
+            value={name}
+            onChange={handleChangeUserData}
+            label="Имя"
+            placeholder="Введите имя пользователя"
+            name="name"
+          />
+          <InputNumber
+            value={age}
+            onChange={handleChangeUserData}
+            label="Возраст"
+            placeholder="Введите возраст пользователя"
+            name="age"
+          />
+          <Select
+            options={MALE}
+            label="Пол"
+            onChange={handleChangeUserData}
+            name="male"
+            selected={String(male)}
+          />
+        </div>
         <Button text="Сохранить" onClick={handleSaveData} />
       </div>
     </div>
