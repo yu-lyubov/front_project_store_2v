@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import { ReactComponent as Visibility } from '../../../assets/icons/visibility.svg';
-import { ReactComponent as VisibilityOff } from '../../../assets/icons/visibility_off.svg';
-import { IInputProps } from '../../../types/components';
-import styles from '../input.module.scss';
+import { ReactComponent as Visibility } from '../../assets/icons/visibility.svg';
+import { ReactComponent as VisibilityOff } from '../../assets/icons/visibility_off.svg';
+import { IInputProps } from '../../types/components';
+import styles from './input.module.scss';
 
 const InputPassword: React.FC<IInputProps> = ({
   value,

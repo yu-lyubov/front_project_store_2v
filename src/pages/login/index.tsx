@@ -4,7 +4,7 @@ import axios from 'axios';
 import { toast } from 'react-toastify';
 import Input from '../../components/Inputs/Input';
 import InputPassword from '../../components/Inputs/InputPassword';
-import Button from '../../components/Button';
+import Button from '../../components/Button/Button';
 import { initialUser } from '../../helper/consts/user';
 import { ROUTES_PATH } from '../../helper/routes';
 import { IUserForm } from '../../types/user';

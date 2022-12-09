@@ -1,0 +1,27 @@
+@import "../../style/color";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  height: 75px;
+  position: relative;
+
+  &_label {
+    font-size: 16px;
+    color: $primary-burgundy-color;
+  }
+
+  .select {
+    border: none;
+    border-bottom: 1px solid $primary-burgundy-color;
+    border-radius: 0;
+    padding: 10px 5px;
+    font-size: 16px;
+    font-family: 'Belleza', sans-serif;
+    background: $white-color;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+}

@@ -1,8 +1,8 @@
 import React from 'react';
-import { IInputProps } from '../../../types/components';
-import styles from '../input.module.scss';
+import { IInputProps } from '../../types/components';
+import styles from './input.module.scss';
 
-const Input: React.FC<IInputProps> = ({
+const InputNumber: React.FC<IInputProps> = ({
   value,
   onChange,
   label,
@@ -24,7 +24,7 @@ const Input: React.FC<IInputProps> = ({
       </label>
       <input
         id={label}
-        type="text"
+        type="number"
         value={value}
         onChange={onChange}
         placeholder={placeholder}
@@ -36,4 +36,4 @@ const Input: React.FC<IInputProps> = ({
   );
 };
 
-export default Input;
+export default InputNumber;
