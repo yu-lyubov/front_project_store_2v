@@ -31,8 +31,10 @@ const Login: React.FC = () => {
   const handleSaveUser = async () => {
     axios.post('http://localhost:8000/api/login', user)
       .then(async (res) => {
-        const { access_token } = res.data;
-        await localStorage.setItem('access_token', JSON.stringify(access_token || ''));
+        const { accessToken } = res.data;
+        console.log('res.data', res.data)
+        console.log('access_token', accessToken)
+        await localStorage.setItem('access_token', JSON.stringify(accessToken || ''));
         navigate(ROUTES_PATH.PROFILE);
       })
       .catch((err) => {

@@ -9,6 +9,7 @@ import Select from '../../components/Select/Select';
 import Button from '../../components/Button/Button';
 import { MALE } from '../../helper/consts/user';
 import styles from './profile.module.scss';
+import {axiosPrivate} from "../../helper/api-request";
 
 const initialUser = {
   name: '',
@@ -28,9 +29,7 @@ const UserData: React.FC = () => {
   }, []);
 
   const getUserData = (): void => {
-    axios.get('http://localhost:8000/api/user', {
-      headers: { Authorization: header },
-    })
+    axiosPrivate.get('http://localhost:8000/api/user')
       .then((res) => {
         console.log(res);
         setUserData({...res.data});
